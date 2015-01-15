@@ -3,7 +3,6 @@ MAINTAINER pangliang "418094911@qq.com"
 
 #aliyun mirrors
 COPY sources.list /etc/apt/
-RUN rm /etc/apt/sources.list.d/*
 RUN apt-get update
 
 #some tools
