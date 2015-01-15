@@ -7,13 +7,9 @@
 
 ###运行
 
-```bash
-$ docker run -d pangliang/php-server
-```
+	$ docker run -d pangliang/php-server
 
 ###站点目录映射到宿主机
 
-```bash
-$ docker run -d pangliang/php-server -v $MYWEB_PATH:/server/www
-```
+	$ docker run -d pangliang/php-server -v $MYWEB_PATH:/server/www
 
