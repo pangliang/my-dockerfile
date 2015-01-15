@@ -16,14 +16,15 @@ RUN \
 	tar -xvf tengine-2.1.0.tar.gz && \
 	cd tengine-2.1.0 && \
 	./configure --prefix=/server/tengine && \
-	make && make install
-RUN rm -rf /tmp/tengine*
-RUN chown www-data /server/tengine/logs -R
+	make && make install && \
+	rm -rf /tmp/tengine* && \
+	chown www-data /server/tengine/logs -R
+
 ADD nginx.conf /server/tengine/conf/
 ADD sites/ /server/tengine/conf/sites
 
 
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose ports.
 EXPOSE 80
