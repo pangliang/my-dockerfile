@@ -1,5 +1,8 @@
 #ssdb
 
+* 安装路径: /usr/local/ssdb
+* 数据目录: /usr/local/ssdb/var
+
 
 #### 运行,给容器命名
 
