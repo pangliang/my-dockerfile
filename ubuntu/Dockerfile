@@ -8,6 +8,9 @@ RUN apt-get update
 #some tools
 RUN apt-get install -y vim wget curl
 
+#timezone
+RUN cp /usr/share/zoneinfo/Asia/ShangHai /etc/localtime
+
 #supervisor
 RUN apt-get install -y supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
