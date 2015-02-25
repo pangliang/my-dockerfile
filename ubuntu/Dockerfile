@@ -1,6 +1,9 @@
 FROM ubuntu:14.04
 MAINTAINER pangliang "418094911@qq.com"
 
+#dns
+COPY resolv.conf.d /etc/resolvconf/resolv.conf.d
+
 #aliyun mirrors
 COPY sources.list /etc/apt/
 RUN rm -rf /etc/apt/sources.list.d
