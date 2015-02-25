@@ -13,7 +13,8 @@ RUN apt-get update
 RUN apt-get install -y vim wget curl supervisor
 
 #timezone
-RUN cp /usr/share/zoneinfo/PRC /etc/localtime
+RUN echo "Asia/Shanghai" >/etc/timezone
+RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 #supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
