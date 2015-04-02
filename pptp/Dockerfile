@@ -1,9 +1,10 @@
-FROM ubuntu:14.04
+FROM pangliang/ubuntu
 MAINTAINER pangliang "418094911@qq.com"
 
 
 RUN apt-get update \
-	&& apt-get install -y supervisor pptpd \
+	&& apt-get install -y supervisor pptpd iptables \
+	&& sed -i '1s/^/iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE/' /etc/rc.local \
 	&& sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf \
 	&& echo "done......"
 
