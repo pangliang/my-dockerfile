@@ -55,8 +55,8 @@ require-mppe-128
 # specifies the secondary DNS address.
 # Attention! This information may not be taken into account by a Windows
 # client. See KB311218 in Microsoft's knowledge base for more information.
-#ms-dns 8.8.8.8
-#ms-dns 8.8.4.4
+ms-dns 8.8.8.8
+ms-dns 8.8.4.4
 
 # If pppd is acting as a server for Microsoft Windows or "Samba"
 # clients, this option allows pppd to supply one or two WINS (Windows
