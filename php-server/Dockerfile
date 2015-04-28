@@ -4,7 +4,7 @@ MAINTAINER pangliang "418094911@qq.com"
 
 # php5-fpm
 RUN apt-get update
-RUN apt-get install -y php5-fpm php5-cli php5-curl php5-json php5-mcrypt
+RUN apt-get install -y php5-mysql php5-fpm php5-cli php5-curl php5-json php5-mcrypt
 ADD php-fpm.conf /etc/php5/fpm/php-fpm.conf
 
 # tengine
