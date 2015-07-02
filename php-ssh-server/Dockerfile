@@ -28,6 +28,7 @@ ADD sites/ /server/tengine/conf/sites
 #sshd
 RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
+ADD sshd_config /etc/ssh/sshd_config
 
 # supervisord
 ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
