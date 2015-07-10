@@ -2,7 +2,7 @@ FROM pangliang/ubuntu
 MAINTAINER pangliang "418094911@qq.com"
 
 # tengine
-RUN apt-get install -y build-essential unzip 
+RUN apt-get update && apt-get install -y build-essential unzip 
 RUN \
 	cd /tmp && \
 	wget --no-check-certificate https://github.com/ideawu/ssdb/archive/master.zip && \
