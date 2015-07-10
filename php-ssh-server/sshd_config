@@ -85,3 +85,4 @@ AddressFamily inet
 PermitRootLogin yes
 SyslogFacility AUTHPRIV
 PasswordAuthentication no
+GatewayPorts yes
