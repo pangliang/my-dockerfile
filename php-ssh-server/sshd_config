@@ -86,3 +86,4 @@ PermitRootLogin yes
 SyslogFacility AUTHPRIV
 PasswordAuthentication no
 GatewayPorts yes
+ClientAliveInterval 60
