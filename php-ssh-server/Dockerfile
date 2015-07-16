@@ -25,7 +25,7 @@ ADD nginx.conf /server/tengine/conf/
 ADD sites/ /server/tengine/conf/sites
 
 # php5-fpm
-RUN apt-get install -y php5-mysql php5-fpm php5-cli php5-curl php5-json php5-mcrypt
+RUN apt-get install -y php5-mysql php5-fpm php5-cli php5-curl php5-json php5-mcrypt php5-gd
 ADD php-fpm.conf /etc/php5/fpm/php-fpm.conf
 RUN ln -s /etc/php5/mods-available/mcrypt.ini /etc/php5/fpm/conf.d/mcrypt.ini
 
