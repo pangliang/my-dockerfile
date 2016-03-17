@@ -1,6 +1,8 @@
 FROM ubuntu:14.04
 MAINTAINER pangliang "418094911@qq.com"
 
+ENV LANG=C.UTF-8
+
 #dns
 COPY resolv.conf.d /etc/resolvconf/resolv.conf.d
 
