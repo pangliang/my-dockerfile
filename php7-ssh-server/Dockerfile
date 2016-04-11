@@ -31,8 +31,9 @@ ADD nginx.conf /server/tengine/conf/
 ADD sites/ /server/tengine/conf/sites
 
 # php7.0-fpm
-RUN apt-get install -y php7.0-mysql php7.0-fpm php7.0-cli php7.0-curl php7.0-json php7.0-mcrypt php7.0-gd
+RUN apt-get install -y php7.0-mysql php7.0-fpm php7.0-cli php7.0-curl php7.0-json php7.0-mcrypt php7.0-gd php7.0-mbstring
 ADD www.conf	/etc/php/7.0/fpm/pool.d/www.conf
+ADD php-fpm.conf	/etc/php/7.0/fpm/php-fpm.conf
 
 #sshd
 RUN apt-get install -y openssh-server
