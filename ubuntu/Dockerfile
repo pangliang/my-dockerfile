@@ -1,4 +1,4 @@
-FROM ubuntu:14.04
+FROM ubuntu:16.04
 MAINTAINER pangliang "418094911@qq.com"
 
 ENV LANG=C.UTF-8
