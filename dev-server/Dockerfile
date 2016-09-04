@@ -25,7 +25,16 @@ RUN apt-get install -y vim-nox \
 	&& ./init.sh \
     && ln -s ~/.vim/vimrc ~/.vimrc
 
+#sshd
+RUN apt-get install -y openssh-server
+RUN mkdir /var/run/sshd
+ADD sshd_config /etc/ssh/sshd_config
 
+# supervisord
+ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Expose ports.
+EXPOSE 22
 
 
 
