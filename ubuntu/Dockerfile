@@ -16,6 +16,7 @@ RUN apt-get install -y vim wget curl supervisor
 
 #timezone
 RUN echo "Asia/Shanghai" >/etc/timezone
+RUN apt-get install tzdata
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 #supervisor
