@@ -2,7 +2,7 @@ FROM pangliang/ubuntu
 MAINTAINER pangliang "418094911@qq.com"
 
 # motd welcome
-ADD 01-welcome /etc/update-motd.d/
+ADD config/01-welcome /etc/update-motd.d/
 RUN run-parts /etc/update-motd.d/
 
 # apt update
