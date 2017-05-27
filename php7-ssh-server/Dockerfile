@@ -35,7 +35,7 @@ RUN apt-get install -y openssh-server
 RUN mkdir /var/run/sshd
 
 # supervisord
-ADD supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+ADD config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
 # Expose ports.
 EXPOSE 80
