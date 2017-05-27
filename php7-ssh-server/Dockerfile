@@ -1,4 +1,4 @@
-FROM pangliang/ubuntu
+FROM registry.cn-qingdao.aliyuncs.com/pangliang/ubuntu
 MAINTAINER pangliang "418094911@qq.com"
 
 # motd welcome
