@@ -12,7 +12,7 @@ RUN rm -rf /etc/apt/sources.list.d
 RUN apt-get update
 
 #some tools
-RUN apt-get install -y vim wget curl supervisor
+RUN apt-get install -y vim wget curl supervisor iputils-ping dnsutils netcat
 
 #timezone
 RUN echo "Asia/Shanghai" >/etc/timezone
