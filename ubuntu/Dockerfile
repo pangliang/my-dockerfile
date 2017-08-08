@@ -15,8 +15,8 @@ RUN apt-get update
 RUN apt-get install -y vim wget curl supervisor iputils-ping dnsutils netcat
 
 #timezone
-RUN echo "Asia/Shanghai" >/etc/timezone
 RUN apt-get install tzdata
+RUN cat /usr/share/zoneinfo/Asia/Shanghai >/etc/localtime
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 
 #supervisor
