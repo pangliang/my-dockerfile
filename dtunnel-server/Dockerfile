@@ -8,4 +8,4 @@ RUN apk update \
 	&& chmod +x dtunnel dtunnel_s
 WORKDIR /data
 EXPOSE 8018/udp 8000 8001
-ENTRYPOINT ["./dtunnel_s", "-admin 0.0.0.0:80001"]
+ENTRYPOINT ["./dtunnel_s", "-admin", "0.0.0.0:80001"]
