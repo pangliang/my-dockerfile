@@ -37,6 +37,14 @@ RUN mkdir /var/run/sshd
 # supervisord
 ADD config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+#config files
+ADD config/authorized_keys /root/.ssh/authorized_keys
+ADD config/nginx.conf /server/tengine/conf/nginx.conf
+ADD config/sites /server/tengine/conf/sites
+ADD config/www.conf /etc/php/7.0/fpm/pool.d/www.conf
+ADD config/php-fpm.conf /etc/php/7.0/fpm/php-fpm.conf
+ADD config/sshd_config /etc/ssh/sshd_config
+
 # Expose ports.
 EXPOSE 80
 EXPOSE 443
