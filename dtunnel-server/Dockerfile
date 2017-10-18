@@ -7,5 +7,5 @@ RUN apk update \
 	&& tar -xvf dtunnel_linux_x64.tgz \
 	&& chmod +x dtunnel dtunnel_s
 WORKDIR /data
-EXPOSE 8018 8000
-ENTRYPOINT ["./dtunnel_s"]
+EXPOSE 8018/udp 8000 8001
+ENTRYPOINT ["./dtunnel_s -admin 0.0.0.0:80001"]
