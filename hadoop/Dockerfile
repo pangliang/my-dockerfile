@@ -2,7 +2,7 @@ FROM openjdk:8-jre-slim-buster
 
 RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list \
 	&& apt-get update \
-	&& apt-get install -y wget libsnappy-dev libssl-dev
+	&& apt-get install -y wget procps libsnappy-dev libssl-dev
 
 ENV HADOOP_HOME=/opt/hadoop HADOOP_VERSION=3.2.1
 
