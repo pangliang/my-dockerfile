@@ -3,12 +3,10 @@
 		<name>dfs.datanode.data.dir</name>
 		<value>file:///root/hdfs/datanode</value>
 	</property>
-
 	<property>
 		<name>dfs.namenode.name.dir</name>
 		<value>file:///root/hdfs/namenode</value>
 	</property>
-
 	<property>
 		<name>dfs.replication</name>
 		<value>1</value>
@@ -22,4 +20,22 @@
 		<name>dfs.namenode.servicerpc-bind-host</name>
 		<value>0.0.0.0</value>
 	</property>
+
+	<property>
+		<name>dfs.namenode.avoid.read.stale.datanode</name>
+		<value>true</value>
+	</property>
+	<property>
+		<name>dfs.namenode.avoid.write.stale.datanode</name>
+		<value>true</value>
+	</property>
+	<property>
+		<name>dfs.namenode.stale.datanode.interval</name>
+		<value>10000</value>
+	</property>
+	<property>
+		<name>dfs.namenode.heartbeat.recheck-interval</name>
+		<value>10000</value>
+	</property>
+
 </configuration>
