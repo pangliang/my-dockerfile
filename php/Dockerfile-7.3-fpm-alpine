@@ -2,5 +2,5 @@ FROM php:7.3-fpm-alpine
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
 	&& apk update \
-	&& docker-php-ext-install mysqli pdo_mysql gd2\
-	&& docker-php-ext-enable mysqli pdo_mysql gd2
+	&& docker-php-ext-install mysqli pdo_mysql gd\
+	&& docker-php-ext-enable mysqli pdo_mysql gd
