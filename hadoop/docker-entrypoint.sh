@@ -21,6 +21,16 @@ elif [ "$1" = "datanode" ]; then
   mkdir -p /root/hdfs/datanode
   $HADOOP_HOME/bin/hdfs datanode
 
+elif [ "$1" = "resourcemanager" ]; then
+  shift 1
+  $HADOOP_HOME/bin/yarn --daemon start proxyserver
+  $HADOOP_HOME/bin/mapred --daemon start historyserver
+  $HADOOP_HOME/bin/yarn resourcemanager
+
+elif [ "$1" = "nodemanager" ]; then
+  shift 1
+  $HADOOP_HOME/bin/yarn nodemanager
+
 fi
 
 exec "$@"
