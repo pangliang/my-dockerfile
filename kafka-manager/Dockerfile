@@ -1,0 +1,17 @@
+FROM openjdk:11-jdk-slim-buster
+
+RUN sed -i "s@deb.debian.org@mirrors.aliyun.com@g" /etc/apt/sources.list \
+	&& sed -i "s@security.debian.org@mirrors.aliyun.com@g" /etc/apt/sources.list \
+	&& apt-get update \
+	&& apt-get install -y wget procps
+
+ENV APP_VERSION=3.0.0.2
+ENV APP_HOME=/opt/cmak
+
+WORKDIR ${APP_HOME}
+
+RUN wget -q -O - https://github.com/yahoo/CMAK/releases/download/${APP_VERSION}/cmak-${APP_VERSION}.zip | jar xvf /dev/stdin \
+	&& ln -s ${APP_HOME}-${APP_VERSION} ${APP_HOME} \
+	&& rm -f ${APP_HOME}/share
+
+CMD ["/${APP_HOME}/bin/cmak"]
