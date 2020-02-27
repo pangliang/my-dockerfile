@@ -11,7 +11,7 @@ ENV APP_HOME=/opt/cmak
 RUN cd /opt/ \
 	&& wget -q -O - https://github.com/yahoo/CMAK/releases/download/${APP_VERSION}/cmak-${APP_VERSION}.zip | jar xvf /dev/stdin \
 	&& ln -s ${APP_HOME}-${APP_VERSION} ${APP_HOME} \
-	&& rm -f ${APP_HOME}/share \
+	&& rm -rf ${APP_HOME}/share \
 	&& chmod +x ${APP_HOME}/bin/*
 
 WORKDIR ${APP_HOME}
