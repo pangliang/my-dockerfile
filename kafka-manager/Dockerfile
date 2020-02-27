@@ -15,4 +15,4 @@ RUN cd /opt/ \
 	&& chmod +x ${APP_HOME}/bin/*
 
 WORKDIR ${APP_HOME}
-CMD ["/${APP_HOME}/bin/cmak"]
+CMD ["/opt/cmak/bin/cmak"]
