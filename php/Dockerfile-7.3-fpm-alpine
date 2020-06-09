@@ -2,5 +2,5 @@ FROM php:7.3-fpm-alpine
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
 	&& apk update \
-        && apk add freetype-dev libpng-dev libjpeg-turbo-dev zlib1g-dev libzip-dev\
+        && apk add freetype-dev libpng-dev libjpeg-turbo-dev libzip-dev\
 	&& docker-php-ext-install mysqli pdo_mysql gd zip
