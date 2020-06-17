@@ -3,6 +3,8 @@ FROM php:7.3-fpm-alpine
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
 	&& apk update \
         && apk add freetype-dev\
+		libwebp-dev\
+		libxpm-dev\
 		libpng-dev\
 		libjpeg-turbo-dev\
 		libzip-dev\
@@ -14,5 +16,4 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 	    --with-zlib-dir \
 	    --with-xpm-dir \
 	    --with-freetype-dir \
-	    --enable-gd-native-ttf
 	&& docker-php-ext-install mysqli pdo_mysql gd zip
