@@ -17,3 +17,8 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 	    --with-xpm-dir \
 	    --with-freetype-dir \
 	&& docker-php-ext-install mysqli pdo_mysql gd zip
+	
+RUN apk add gcc g++ autoconf make\
+	&& pecl install -o -f redis\
+	&& rm -rf /tmp/pear \
+	&& docker-php-ext-enable redis
