@@ -5,6 +5,12 @@ USER root
 RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list \
     && sed -i "s@http://security.debian.org@http://mirrors.aliyun.com@g" /etc/apt/sources.list \
 	&& apt-get update \
-	&& apt-get install -y wget fish tmux
+	&& apt-get upgrade -y \
+	&& apt-get install -y wget fish tmux apt-transport-https gnupg2
+
+RUN curl https://mirrors.aliyun.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - \
+	&& echo "deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list \
+	&& apt-get update \
+	&& apt-get install -y kubectl
 
 COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/docker
