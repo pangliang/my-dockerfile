@@ -7,14 +7,6 @@ RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositorie
 		libpng-dev\
 		libjpeg-turbo-dev\
 		libzip-dev\
-	&& docker-php-ext-configure gd \
-	    --with-gd \
-	    --with-webp-dir \
-	    --with-jpeg-dir \
-	    --with-png-dir \
-	    --with-zlib-dir \
-	    --with-xpm-dir \
-	    --with-freetype-dir \
 	&& docker-php-ext-install mysqli pdo_mysql gd zip
 
 RUN apk add gcc g++ autoconf make\
