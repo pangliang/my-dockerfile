@@ -4,7 +4,7 @@ RUN sed -i "s@http://deb.debian.org@http://mirrors.aliyun.com@g" /etc/apt/source
 	&& apt-get update \
 	&& apt-get install -y wget procps libsnappy-dev libssl-dev
 
-ENV HADOOP_HOME=/opt/hadoop HADOOP_VERSION=3.2.1
+ENV HADOOP_HOME=/opt/hadoop HADOOP_VERSION=3.2.2
 
 # 清除文件在一层, 可以减小image大小
 RUN wget -q -O - http://mirrors.tuna.tsinghua.edu.cn/apache/hadoop/common/hadoop-${HADOOP_VERSION}/hadoop-${HADOOP_VERSION}.tar.gz | tar -xzf - -C /opt/ \
