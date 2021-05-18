@@ -1,4 +1,4 @@
-FROM codercom/code-server:3.9.3
+FROM codercom/code-server:3.10.1
 
 USER root
 
@@ -6,7 +6,9 @@ RUN sed -i "s@http://deb.debian.org@http://mirrors.cloud.aliyuncs.com@g" /etc/ap
     && sed -i "s@http://security.debian.org@http://mirrors.cloud.aliyuncs.com@g" /etc/apt/sources.list \
 	&& apt-get update \
 	&& apt-get upgrade -y \
-	&& apt-get install -y wget fish tmux apt-transport-https gnupg2 vim dnsutils
+	&& apt-get install -y wget fish tmux apt-transport-https gnupg2 vim dnsutils \
+	&& rm /bin/sh \
+	&& ln -s /bin/bash /bin/sh
 
 RUN curl http://mirrors.cloud.aliyuncs.com/kubernetes/apt/doc/apt-key.gpg | apt-key add - \
 	&& echo "deb http://mirrors.cloud.aliyuncs.com/kubernetes/apt/ kubernetes-xenial main" | tee -a /etc/apt/sources.list.d/kubernetes.list \
