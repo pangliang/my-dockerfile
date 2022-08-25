@@ -5,7 +5,7 @@ RUN sed -i "s@deb.debian.org@mirrors.aliyun.com@g" /etc/apt/sources.list \
 	&& apt-get update \
 	&& apt-get install -y wget procps
 
-ENV APP_VERSION=3.0.0.4
+ENV APP_VERSION=3.0.0.6
 ENV APP_HOME=/opt/cmak
 
 RUN cd /opt/ \
