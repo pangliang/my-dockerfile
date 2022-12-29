@@ -24,7 +24,7 @@ jobs:
           username: pangliang
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: Build and push ${{ env.REGISTRY }}-fpm-alpine
+      - name: Build and push ${{ env.PHP_VER }}-fpm-alpine
         uses: docker/build-push-action@v3
         with:
           context: php/
