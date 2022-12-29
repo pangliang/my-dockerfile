@@ -1,4 +1,5 @@
-FROM php:8.2.0-cli-alpine
+ARG PHP_VER
+FROM php:${PHP_VER}-cli-alpine
 
 RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
 	&& apk update \
