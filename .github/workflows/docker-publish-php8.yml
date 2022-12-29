@@ -1,4 +1,4 @@
-name: Docker
+name: Build Docker Image php-8
 
 on:
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
           context: php/
           push: true
           tags: ${{ env.PHP_VER }}-fpm-alpine
-          file: Dockerfile-8-fpm-alpine
+          file: php/Dockerfile-8-fpm-alpine
           build-args: PHP_VER=${{ env.PHP_VER }}
       
       - name: Build and push ${{ env.REGISTRY }}-cli-alpine
@@ -39,7 +39,7 @@ jobs:
           context: php/
           push: true
           tags: ${{ env.PHP_VER }}-cli-alpine
-          file: Dockerfile-8-cli-alpine
+          file: php/Dockerfile-8-cli-alpine
           build-args: PHP_VER=${{ env.PHP_VER }}
 
 
