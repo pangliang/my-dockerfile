@@ -1,0 +1,24 @@
+FROM php:8.2.0-fpm-alpine
+
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
+	&& apk update \
+        && apk add freetype-dev\
+		libwebp-dev\
+		libxpm-dev\
+		libpng-dev\
+		libjpeg-turbo-dev\
+		libzip-dev\
+	&& docker-php-ext-configure gd \
+	    --enable-gd \
+	    --with-webp \
+	    --with-jpeg \
+	    --with-xpm \
+	    --with-freetype \
+	&& docker-php-ext-install mysqli pdo_mysql gd zip bcmath
+	
+RUN apk add gcc g++ autoconf make linux-headers\
+	&& pecl install -o -f redis\
+	&& docker-php-ext-enable redis \
+	&& pecl install xdebug \
+    && docker-php-ext-enable xdebug \
+	&& rm -rf /tmp/pear
