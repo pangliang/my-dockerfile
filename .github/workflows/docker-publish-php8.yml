@@ -22,7 +22,7 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: pangliang
-          password: ${{ secrets.DOCKER_IO_TOKEN }}
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: Build and push ${{ env.REGISTRY }}-fpm-alpine
         uses: docker/build-push-action@v3.2.0
