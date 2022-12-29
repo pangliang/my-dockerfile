@@ -18,27 +18,27 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@v2.1.0
+        uses: docker/login-action@v2
         with:
           registry: ${{ env.REGISTRY }}
           username: pangliang
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
       - name: Build and push ${{ env.REGISTRY }}-fpm-alpine
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@v3
         with:
           context: php/
           push: true
-          tags: ${{ env.PHP_VER }}-fpm-alpine
+          tags: pangliang/php:${{ env.PHP_VER }}-fpm-alpine
           file: php/Dockerfile-8-fpm-alpine
           build-args: PHP_VER=${{ env.PHP_VER }}
       
       - name: Build and push ${{ env.REGISTRY }}-cli-alpine
-        uses: docker/build-push-action@v3.2.0
+        uses: docker/build-push-action@v3
         with:
           context: php/
           push: true
-          tags: ${{ env.PHP_VER }}-cli-alpine
+          tags: pangliang/php:${{ env.PHP_VER }}-cli-alpine
           file: php/Dockerfile-8-cli-alpine
           build-args: PHP_VER=${{ env.PHP_VER }}
 
