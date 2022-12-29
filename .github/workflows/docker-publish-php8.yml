@@ -33,7 +33,7 @@ jobs:
           file: php/Dockerfile-8-fpm-alpine
           build-args: PHP_VER=${{ env.PHP_VER }}
       
-      - name: Build and push ${{ env.REGISTRY }}-cli-alpine
+      - name: Build and push ${{ env.PHP_VER }}-cli-alpine
         uses: docker/build-push-action@v3
         with:
           context: php/
