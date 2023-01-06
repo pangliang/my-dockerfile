@@ -1,0 +1,55 @@
+name: maven-mvnd
+
+on:
+  workflow_dispatch:
+
+env:
+  REGISTRY: docker.io
+  MVND_VERSION: 0.8.2
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Log into registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: pangliang
+          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+
+      - name: ${{ env.MVND_VERSION }}-openjdk-8
+        uses: docker/build-push-action@v3
+        with:
+          context: maven-mvnd/
+          push: true
+          file: maven-mvnd/Dockerfile
+          build-args: |
+            JDK_VERSION=8-jdk-slim
+            MVND_VERSION=${{ env.MVND_VERSION }}
+          tags: |
+            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-8
+            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-8-slim
+            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-jdk-8
+      
+      - name: ${{ env.MVND_VERSION }}-openjdk-11
+        uses: docker/build-push-action@v3
+        with:
+          context: maven-mvnd/
+          push: true
+          file: maven-mvnd/Dockerfile
+          build-args: |
+            JDK_VERSION=11-jdk-slim
+            MVND_VERSION=${{ env.MVND_VERSION }}
+          tags: |
+            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-11
+            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-11-slim
+            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-jdk-11
+      
+
+
