@@ -1,4 +1,4 @@
-FROM codercom/code-server:4.7.1
+FROM codercom/code-server:4.9.1
 
 USER root
 
@@ -6,7 +6,7 @@ RUN sed -i "s@http://deb.debian.org@http://mirrors.cloud.aliyuncs.com@g" /etc/ap
     && sed -i "s@http://security.debian.org@http://mirrors.cloud.aliyuncs.com@g" /etc/apt/sources.list \
 	&& apt-get update \
 	&& apt-get upgrade -y \
-	&& apt-get install -y wget fish tmux apt-transport-https gnupg2 vim dnsutils iputils-ping net-tools\
+	&& apt-get install -y wget fish tmux apt-transport-https gnupg2 vim dnsutils iputils-ping net-tools openjdk-11-jdk\
 	&& rm /bin/sh \
 	&& ln -s /bin/bash /bin/sh
 
