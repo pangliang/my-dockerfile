@@ -29,6 +29,7 @@ jobs:
           context: maven-mvnd/
           push: true
           file: maven-mvnd/Dockerfile
+          platforms: linux/amd64,linux/arm64,linux/arm
           build-args: |
             JDK_VERSION=8-jdk-slim
             MVND_VERSION=${{ env.MVND_VERSION }}
@@ -37,19 +38,47 @@ jobs:
             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-8-slim
             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-jdk-8
       
-      - name: ${{ env.MVND_VERSION }}-openjdk-11
-        uses: docker/build-push-action@v3
-        with:
-          context: maven-mvnd/
-          push: true
-          file: maven-mvnd/Dockerfile
-          build-args: |
-            JDK_VERSION=11-jdk-slim
-            MVND_VERSION=${{ env.MVND_VERSION }}
-          tags: |
-            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-11
-            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-11-slim
-            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-jdk-11
+#       - name: ${{ env.MVND_VERSION }}-openjdk-11
+#         uses: docker/build-push-action@v3
+#         with:
+#           context: maven-mvnd/
+#           push: true
+#           file: maven-mvnd/Dockerfile
+#           build-args: |
+#             JDK_VERSION=11-jdk-slim
+#             MVND_VERSION=${{ env.MVND_VERSION }}
+#           tags: |
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-11
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-11-slim
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-jdk-11
+            
+#       - name: ${{ env.MVND_VERSION }}-openjdk-17
+#         uses: docker/build-push-action@v3
+#         with:
+#           context: maven-mvnd/
+#           push: true
+#           file: maven-mvnd/Dockerfile
+#           build-args: |
+#             JDK_VERSION=17-jdk-slim
+#             MVND_VERSION=${{ env.MVND_VERSION }}
+#           tags: |
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-17
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-17-slim
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-jdk-17
+            
+#       - name: ${{ env.MVND_VERSION }}-openjdk-19
+#         uses: docker/build-push-action@v3
+#         with:
+#           context: maven-mvnd/
+#           push: true
+#           file: maven-mvnd/Dockerfile
+#           build-args: |
+#             JDK_VERSION=19-jdk-slim
+#             MVND_VERSION=${{ env.MVND_VERSION }}
+#           tags: |
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-19
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-19-slim
+#             pangliang/maven-mvnd:${{ env.MVND_VERSION }}-jdk-19
       
 
 
