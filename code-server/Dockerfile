@@ -16,3 +16,5 @@ RUN curl http://mirrors.cloud.aliyuncs.com/kubernetes/apt/doc/apt-key.gpg | apt-
 	&& apt-get install -y kubectl
 
 COPY --from=docker:dind /usr/local/bin/docker /usr/local/bin/docker
+
+ENV JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
