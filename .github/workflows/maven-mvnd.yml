@@ -32,7 +32,7 @@ jobs:
           context: maven-mvnd/
           push: true
           file: maven-mvnd/Dockerfile
-          platforms: linux/amd64,linux/arm64,linux/arm
+          platforms: linux/amd64,linux/arm64
           build-args: |
             JDK_VERSION=8-jdk-slim
             MVND_VERSION=${{ env.MVND_VERSION }}
