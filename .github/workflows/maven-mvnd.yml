@@ -12,7 +12,7 @@ jobs:
     name: openjdk-${{ matrix.JDK_VERSION }}
     runs-on: ubuntu-latest
     strategy:
-      max-parallel: 1
+      max-parallel: 5
       matrix:
         JDK_VERSION: [8, 11, 17, 19, 21]
     steps:
