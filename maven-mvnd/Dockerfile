@@ -1,9 +1,10 @@
-ARG JDK_VERSION
-FROM openjdk:${JDK_VERSION}
+ARG OPENJDK_IMAGE_TAG
+FROM openjdk:${OPENJDK_IMAGE_TAG}
 
 # RUN sed -i "s@deb.debian.org@mirrors.cloud.aliyuncs.com@g" /etc/apt/sources.list \
 #         && sed -i "s@security.debian.org@mirrors.cloud.aliyuncs.com@g" /etc/apt/sources.list \
 #         && apt-get update
+
 RUN apt-get update \
 	&& apt-get install -y wget curl procps \
 	&& rm -rf /var/lib/apt/lists/*
