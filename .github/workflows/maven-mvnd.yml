@@ -1,5 +1,5 @@
 name: maven-mvnd
-run-name: maven-mvnd-v${{ inputs.VERSION }}
+run-name: maven-mvnd-v${{ inputs.MVND_VERSION }}
 
 on:
   workflow_dispatch:
