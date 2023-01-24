@@ -1,11 +1,16 @@
 name: maven-mvnd
+run-name: maven-mvnd-v${{ inputs.MVND_VERSION }}
 
 on:
   workflow_dispatch:
-
+    inputs:
+      MVND_VERSION:
+        description: 'mvnd Version'
+        required: true
+        default: '0.8.2'
+        
 env:
   REGISTRY: docker.io
-  MVND_VERSION: 0.8.2
 
 jobs:
   build:
@@ -32,7 +37,7 @@ jobs:
           username: pangliang
           password: ${{ secrets.DOCKER_HUB_TOKEN }}
 
-      - name: ${{ env.MVND_VERSION }}-openjdk-${{ matrix.JDK_VERSION }}
+      - name: ${{ inputs.MVND_VERSION }}-openjdk-${{ matrix.JDK_VERSION }}
         uses: docker/build-push-action@v3
         with:
           context: maven-mvnd/
@@ -41,6 +46,6 @@ jobs:
           platforms: linux/amd64 #,linux/arm64
           build-args: |
             OPENJDK_IMAGE_TAG=${{ matrix.JDK_VERSION }}-jdk-slim
-            MVND_VERSION=${{ env.MVND_VERSION }}
+            MVND_VERSION=${{ inputs.MVND_VERSION }}
           tags: |
-            pangliang/maven-mvnd:${{ env.MVND_VERSION }}-openjdk-${{ matrix.JDK_VERSION }}
+            pangliang/maven-mvnd:${{ inputs.MVND_VERSION }}-openjdk-${{ matrix.JDK_VERSION }}
