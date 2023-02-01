@@ -19,7 +19,7 @@ jobs:
     strategy:
       max-parallel: 5
       matrix:
-        JDK_VERSION: [8, 11, 17, 19, 21]
+        JDK_VERSION: [8, 11, 17, 19]
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -45,7 +45,7 @@ jobs:
           file: maven-mvnd/Dockerfile
           platforms: linux/amd64 #,linux/arm64
           build-args: |
-            OPENJDK_IMAGE_TAG=${{ matrix.JDK_VERSION }}-jdk-slim
+            OPENJDK_IMAGE=eclipse-temurin:${{ matrix.JDK_VERSION }}-jdk-jammy
             MVND_VERSION=${{ inputs.MVND_VERSION }}
           tags: |
             pangliang/maven-mvnd:${{ inputs.MVND_VERSION }}-openjdk-${{ matrix.JDK_VERSION }}
