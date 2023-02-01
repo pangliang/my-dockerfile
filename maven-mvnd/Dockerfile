@@ -1,9 +1,5 @@
-ARG OPENJDK_IMAGE_TAG
-FROM openjdk:${OPENJDK_IMAGE_TAG}
-
-# RUN sed -i "s@deb.debian.org@mirrors.cloud.aliyuncs.com@g" /etc/apt/sources.list \
-#         && sed -i "s@security.debian.org@mirrors.cloud.aliyuncs.com@g" /etc/apt/sources.list \
-#         && apt-get update
+ARG OPENJDK_IMAGE
+FROM ${OPENJDK_IMAGE}
 
 RUN apt-get update \
 	&& apt-get install -y wget curl procps \
