@@ -1,7 +1,7 @@
-FROM codercom/code-server:4.9.1
+ARG VER
+FROM codercom/code-server:${VER}
 
 USER root
-
 RUN sed -i "s@http://deb.debian.org@http://mirrors.cloud.aliyuncs.com@g" /etc/apt/sources.list \
     && sed -i "s@http://security.debian.org@http://mirrors.cloud.aliyuncs.com@g" /etc/apt/sources.list \
 	&& apt-get update \
