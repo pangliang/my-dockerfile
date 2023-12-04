@@ -24,6 +24,6 @@ RUN apk add gcc g++ autoconf make linux-headers\
     && docker-php-ext-enable xdebug \
 	&& rm -rf /tmp/pear
 
-RUN apk add tini
+RUN apk add tini supervisor
 
 ENTRYPOINT ["/sbin/tini", "--"]
