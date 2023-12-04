@@ -2,10 +2,15 @@ name: php-8
 
 on:
   workflow_dispatch:
+    inputs:
+      PHP_VER:
+        description: 'php Version'
+        required: true
+        default: '8.2.8'
 
 env:
   REGISTRY: docker.io
-  PHP_VER: 8.2.0
+  PHP_VER: ${{ input.PHP_VER }}
 
 jobs:
   build:
