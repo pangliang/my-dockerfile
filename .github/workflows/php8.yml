@@ -10,7 +10,7 @@ on:
 
 env:
   REGISTRY: docker.io
-  PHP_VER: ${{ input.PHP_VER }}
+  PHP_VER: ${{ inputs.PHP_VER }}
 
 jobs:
   build:
