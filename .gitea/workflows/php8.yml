@@ -9,7 +9,7 @@ on:
         default: '8.2.8'
 
 env:
-  REGISTRY: docker.io
+  REGISTRY: gitea.v1.zhaoxiaodan.com
   PHP_VER: ${{ inputs.PHP_VER }}
 
 jobs:
@@ -22,18 +22,18 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Log into registry ${{ env.REGISTRY }}
-        uses: docker/login-action@v2
+        uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
           username: pangliang
-          password: ${{ secrets.DOCKER_HUB_TOKEN }}
+          password: ${{ secrets.ACCESS_TOKEN_PACKAGE_RW }}
 
       - name: Build and push ${{ env.PHP_VER }}-fpm-alpine
         uses: docker/build-push-action@v3
         with:
           context: php/
           push: true
-          tags: pangliang/php:${{ env.PHP_VER }}-fpm-alpine
+          tags: gitea.v1.zhaoxiaodan.com/pangliang/php:${{ env.PHP_VER }}-fpm-alpine
           file: php/Dockerfile-8-fpm-alpine
           build-args: PHP_VER=${{ env.PHP_VER }}
       
@@ -42,7 +42,7 @@ jobs:
         with:
           context: php/
           push: true
-          tags: pangliang/php:${{ env.PHP_VER }}-cli-alpine
+          tags: gitea.v1.zhaoxiaodan.com/pangliang/php:${{ env.PHP_VER }}-cli-alpine
           file: php/Dockerfile-8-cli-alpine
           build-args: PHP_VER=${{ env.PHP_VER }}
 
