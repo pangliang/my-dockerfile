@@ -16,6 +16,10 @@ jobs:
   build:
 
     runs-on: ubuntu-latest
+    container:
+      image: catthehacker/ubuntu:act-22.04
+      volumes:
+        - /run/user/1000/docker.sock:/var/run/docker.sock
 
     steps:
       - name: Checkout repository
