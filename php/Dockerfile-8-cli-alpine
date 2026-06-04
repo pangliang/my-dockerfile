@@ -1,7 +1,7 @@
 ARG PHP_VER
 FROM php:${PHP_VER}-cli-alpine
 
-RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories \
+RUN sed -i 's/https:\/\/dl-cdn.alpinelinux.org/http:\/\/mirrors.cloud.aliyuncs.com/g' /etc/apk/repositories \
 	&& apk update \
         && apk add freetype-dev\
 		libwebp-dev\
