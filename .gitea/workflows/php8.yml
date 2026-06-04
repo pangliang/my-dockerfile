@@ -29,7 +29,7 @@ jobs:
           password: ${{ secrets.ACCESS_TOKEN_PACKAGE_RW }}
 
       - name: Build and push ${{ env.PHP_VER }}-fpm-alpine
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           context: php/
           push: true
@@ -38,7 +38,7 @@ jobs:
           build-args: PHP_VER=${{ env.PHP_VER }}
       
       - name: Build and push ${{ env.PHP_VER }}-cli-alpine
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v5
         with:
           context: php/
           push: true
